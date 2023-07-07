@@ -1,5 +1,5 @@
 from googletrans import Translator
-import pyttsx3
+from pyttsx3 import init
 import speech_recognition as sr
 import gtts as gt
 
