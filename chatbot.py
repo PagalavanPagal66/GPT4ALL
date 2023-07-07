@@ -12,7 +12,7 @@ import Coworker as coworker
 from streamlit_option_menu import option_menu
 
 
-openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = st.secrets['auth_token']
 
 st.title("Mr.CP")
 
