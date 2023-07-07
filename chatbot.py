@@ -10,7 +10,7 @@ import Coworker as coworker
 from streamlit_option_menu import option_menu
 
 
-openai.api_key = st.secrets['auth_token']
+openai.api_key = st.secrets['auth_key']
 
 st.title("Mr.CP")
 
