@@ -2,6 +2,7 @@ from googletrans import Translator
 from pyttsx3 import init
 import speech_recognition as sr
 import gtts as gt
+import comtypes.client
 
 
 
