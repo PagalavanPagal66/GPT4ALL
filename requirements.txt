@@ -1,4 +1,3 @@
-pip == 23.1.2
 wheel == 0.40.0
 googletrans==3.0.0
 gTTS==2.3.2
