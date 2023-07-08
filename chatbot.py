@@ -4,13 +4,15 @@ import streamlit as st
 from streamlit_chat import message
 from utils import get_initial_message, get_chatgpt_response, update_chat
 import os
+from dotenv import load_dotenv
+load_dotenv()
 import openai
 import Coworker as coworker
 import googletrans
 from streamlit_option_menu import option_menu
 
 
-openai.api_key = st.secrets['auth_key']
+openai.api_key = os.getenv('OPENAI_API_KEY')
 
 st.title("")
 
@@ -117,18 +119,13 @@ def body():
                 translated = coworker.trans(data,code)
 
             #splitting and getting only specific lang text
-                try:
-                    tr = translated.text
-                    print(tr)
-                    st.success(tr)
-                    coworker.save(tr, code)
-                    audio_file = open('voicespeech.mp3', 'rb')  # enter the filename with filepath
-                    audio_bytes = audio_file.read()  # reading the file
-                    st.audio(audio_bytes, format='audio/ogg')
-                except:
-                    tr = translated
-                    print(tr)
-                    st.success(tr)
+                tr = translated.text
+                print(tr)
+                st.success(tr)
+                coworker.save(tr, code)
+                audio_file = open('voicespeech.mp3', 'rb')  # enter the filename with filepath
+                audio_bytes = audio_file.read()  # reading the file
+                st.audio(audio_bytes, format='audio/ogg')
         #except:
          #   st.warning("OOPS...! Something went wrong...Check your network connection and try again...")
     elif (selected == 'Speech'):
