@@ -51,5 +51,7 @@ def save(text,code):
 
 def trans(statement,code):
     translator = Translator()
-    return translator.translate(statement , dest= code)
-
+    try:
+        return translator.translate(statement , dest= code)
+    except:
+        return ""
