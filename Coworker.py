@@ -1,15 +1,7 @@
 from googletrans import Translator
-from pyttsx3 import init
 import speech_recognition as sr
 import gtts as gt
 
-
-engine = init('sapi5')
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[1].id)
-
-def speak(audio):
-    engine.say(audio)
 
 def takeCommand(lang):
     r = sr.Recognizer()
