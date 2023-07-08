@@ -4,6 +4,13 @@ import speech_recognition as sr
 import gtts as gt
 
 
+engine = init('sapi5')
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[1].id)
+
+def speak(audio):
+    engine.say(audio)
+
 def takeCommand(lang):
     r = sr.Recognizer()
     with sr.Microphone() as source:
@@ -51,7 +58,5 @@ def save(text,code):
 
 def trans(statement,code):
     translator = Translator()
-    try:
-        return translator.translate(statement , dest= code)
-    except:
-        return ""
+    return translator.translate(statement , dest= code)
+
