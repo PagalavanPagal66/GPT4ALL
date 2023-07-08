@@ -20,3 +20,4 @@ streamlit-option-menu==0.3.6
 plotly==5.15.0
 pyttsx3==2.6
 comtypes==1.2.0
+pyaudio
