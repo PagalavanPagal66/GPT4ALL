@@ -117,13 +117,18 @@ def body():
                 translated = coworker.trans(data,code)
 
             #splitting and getting only specific lang text
-                tr = translated.text
-                print(tr)
-                st.success(tr)
-                coworker.save(tr, code)
-                audio_file = open('voicespeech.mp3', 'rb')  # enter the filename with filepath
-                audio_bytes = audio_file.read()  # reading the file
-                st.audio(audio_bytes, format='audio/ogg')
+                try:
+                    tr = translated.text
+                    print(tr)
+                    st.success(tr)
+                    coworker.save(tr, code)
+                    audio_file = open('voicespeech.mp3', 'rb')  # enter the filename with filepath
+                    audio_bytes = audio_file.read()  # reading the file
+                    st.audio(audio_bytes, format='audio/ogg')
+                except:
+                    tr = translated
+                    print(tr)
+                    st.success(tr)
         #except:
          #   st.warning("OOPS...! Something went wrong...Check your network connection and try again...")
     elif (selected == 'Speech'):
