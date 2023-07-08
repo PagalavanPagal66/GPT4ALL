@@ -4,15 +4,14 @@ import streamlit as st
 from streamlit_chat import message
 from utils import get_initial_message, get_chatgpt_response, update_chat
 import os
-from dotenv import load_dotenv
-load_dotenv()
+
 import openai
 import Coworker as coworker
 import googletrans
 from streamlit_option_menu import option_menu
 
 
-openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = st.secrets['auth_key']
 
 st.title("")
 
